@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aakash Bhatnagar - Profile</title>
+  <link rel="icon" type="image/x-icon" href="avatar.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #111;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      z-index: 1000;
+      padding: 45px 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links a {
+      margin-left: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #0073e6;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+      align-items: flex-start;
+      gap: 60px;
+    }
+
+    .left {
+      flex: 1;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .name {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .sub-name {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .bio {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background-color: #0073e6;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #005bb5;
+    }
+
+    .right {
+      flex: 2;
+    }
+
+    .tools-heading {
+      font-weight: 700;
+      margin-bottom: 24px;
+      font-size: 18px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .tool {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(135deg, #f0f0f0, #ffffff);
+      padding: 16px;
+      border-radius: 16px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .tool img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+    }
+
+    .tool span {
+      font-weight: 600;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+    }
+    .section-title {
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      color: #ADD8E6;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .main-title {
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #f0f0f0, #ffffff);
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: #ADD8E6;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .portfolio-item {
+      background: linear-gradient(135deg, #f0f0f0, #ffffff);
+      padding: 12px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo"><strong>AAKASH BHATNAGAR</strong></div>
+    <div class="nav-links">
+      <a href="index.html">ABOUT ME</a>
+      <a href="resume.pdf" target="_blank">RESUME</a>
+      <a href="portfolio.html">PORTFOLIO</a>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="left">
+      <img src="avatar.jpg" alt="Aakash Bhatnagar" class="avatar" />
+      <div class="name">Aakash Bhatnagar</div>
+      <div class="sub-name">
+        <div>+91-9650355568</div>
+        <div>aakashbh2@gmail.com</div>
+      </div>
+      <div class="bio" id="about">
+        Cultivated a proactive approach as a Product Manager, emphasizing the development of innovative AI-driven and SaaS solutions to significantly boost product adoption and foster remarkable business growth across various sectors.
+      </div>
+      <div class="tools-grid">
+        <a href="https://www.linkedin.com/in/aakash-bhatnagar/" target="_blank"><div class="tool"><img src="icons/linkedin.png" alt="Linkedin" /><span>LinkedIn</span></div></a>
+        <a href="resume.pdf" target="_blank"><div class="tool"><img src="icons/resume.png" alt="Resume" /><span>Download Resume</span></div></a>
+      </div>
+      <section class="education-section" style="margin-top: 50px;">
+        <h2 class="tools-heading">EDUCATION</h2>
+        <div class="education-list">
+          <div class="education-item">
+            <span class="year">2024:</span>
+            <span>MBA </span>
+            <div>Indian Institute of Management - Lucknow</div>
+          </div>
+          <div class="education-item" style="margin-top: 20px;">
+            <span class="year">2017:</span>
+            <span>B.Tech - Computer Science</span>
+            <div>Guru Gobind Singh Indraprastha University - Delhi</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <div class="right">
+      <section id="portfolio">
+        <h2 class="tools-heading">PORTFOLIO</h2>
+        <!-- Filters -->
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">ALL</button>
+          <button class="filter-btn" data-filter="products">PRODUCTS</button>
+          <button class="filter-btn" data-filter="teardowns">TEARDOWNS</button>
+          <button class="filter-btn" data-filter="requirements">REQUIREMENTS</button>
+          <button class="filter-btn" data-filter="case-studies">CASE STUDIES</button>
+          <button class="filter-btn" data-filter="certificates">CERTIFICATES</button>
+        </div>
+
+        <!-- Portfolio Items -->
+        <div class="portfolio-grid">
+          <a href="https://docs.google.com/document/d/1HEolMtu1RQj2F5UzO7kvRrf9pvRu8zzaeGzQ2vdlS9o/edit?usp=sharing" target="_blank" class="portfolio-item teardowns">
+            <div>
+              <img src="portfolio/teardown - mailchimp.png" alt="Product Image" />
+            </div>
+          </a>
+          <a href="https://docs.google.com/document/d/1Pr8EnqrbKyuZDjTbHhQGPQwpyBNu2xB8FRnFo4_Sf4E/edit?usp=sharing" target="_blank" class="portfolio-item requirements">
+            <div>
+              <img src="portfolio/requirements - mailchimp.png" alt="Product Image" />
+            </div>
+          </a>
+          <a href="https://drive.google.com/file/d/1gKbrrGXszWoaqgbemFSWMxcaALziUEi0/view" target="_blank" class="portfolio-item teardowns">
+            <div>
+              <img src="portfolio/teardown - optimizely.png" alt="Product Image" />
+            </div>
+          </a>
+          <a href="https://docs.google.com/document/d/1UHnmybJ6jDzFYkY4XuiEQsmWEZ7XZGUqsdu3MDmGGMM/edit?usp=sharing" target="_blank" class="portfolio-item requirements">
+            <div>
+              <img src="portfolio/requirements - optimizely.png" alt="Product Image" />
+            </div>
+          </a>
+
+
+          
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".portfolio-item");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        // Remove active from all and add to current
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        items.forEach(item => {
+          if (filter === "all" || item.classList.contains(filter)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
