@@ -1,322 +1,421 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aakash Bhatnagar - Personal Portfolio Website</title>
-  <!--favicon-img--> 
-   <link rel="icon" type="image/png" href="images/favicon.png">
-   <!--favicon-img-->
-   <!--main css file should not be removed -->
-    <link rel="stylesheet" href="css/index.css">
-    <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aakash Bhatnagar - Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #111;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      z-index: 1000;
+      padding: 45px 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links a {
+      margin-left: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #0073e6;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+      align-items: flex-start;
+      gap: 60px;
+    }
+
+    .left {
+      flex: 1;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .name {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .sub-name {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .bio {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background-color: #0073e6;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #005bb5;
+    }
+
+    .right {
+      flex: 2;
+    }
+
+    .tools-heading {
+      font-weight: 700;
+      margin-bottom: 24px;
+      font-size: 18px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .tool {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(135deg, #f0f0f0, #ffffff);
+      padding: 16px;
+      border-radius: 16px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .tool img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+    }
+
+    .tool span {
+      font-weight: 600;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+    }
+
+    .skills-section {
+      margin-bottom: 120px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #00cc66;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-item .label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .skill-item .bar {
+      background-color: #2e2e2e;
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .skill-item .fill {
+      height: 100%;
+      background-color: #00cc66;
+    }
+
+    .strengths-section {
+      margin: 80px 0;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .strength-card {
+      background: linear-gradient(135deg, #f0f0f0, #ffffff);
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .strength-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .strength-card h3 {
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .strength-card p {
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .strength-card .icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .strength-card.highlighted {
+      background-color: #00cc66;
+      color: #000;
+    }
+
+    .strength-card.highlighted p {
+      color: #111;
+    }
+    .education-section {
+      margin-top: 40px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .education-item {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .education-item .year {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+  </style>
 </head>
 <body>
-    <div id="all">
-        <div id="loader">
-            <span class="color">Aakash</span>Bhatnagar 
-        </div>
 
-        <div id="breaker">
-        </div>
-        <div id="breaker-two">
-        </div>
-        <div id="navigation-content">
-
-        </div>
-        <div class="navigation-links">
-            <a href="#" data-text="HOME" class="active" id="home-link" >HOME</a>
-            <a href="#" data-text="ABOUT" id="about-link" >ABOUT</a>
-            <a href="#" data-text="PORTFOLIO" id="portfolio-link" >PORTFOLIO</a>
-            <a href="#" data-text="CONTACT" id="contact-link" >CONTACT</a>
-        </div>
-
-        <div id="header">
-            <div id="particles"></div>
-              <!--Social Media Links-->
-            <div class="social-media-links">
-                <a href="#"><img src="images/linkedin logo.png" class="social-media" alt="linkedin-logo"></a>
-                <a href="#"><img src="images/call.png" class="social-media" alt="phone-pic"></a>
-                <a href="#"><img src="images/mail.png" class="social-media" alt="email-pic"></a>
-            </div>
-            <!--Social Media Links end-->
-            <div class="header-content">
-                <div class="header-content-box">
-                <div class="firstline"><span class="color">Aakash </span>Bhatnagar</div>
-                <div class="secondline">
-                I'm a
-            <span class="txt-rotate color" data-period="1200"data-rotate='[ " Product Innovator.", " Strategic Thinker.", " Adaptive Leader." ]'></span>
-            <span class="slash">|</span>
-        </div>  
-            </div>
-            </div>
-            <!--header image-->
-            <div class="header-image">
-            <img src="images/man.jpg" alt="logo">
-            </div>
-            <!--header image end-->
-        </div>
-           <!--Header End-->
-        <!--HomePage End-->
-        <!--Main-Section End-->
-        <!--about-->
-        <div id="about">
-            <div id="about-content">
-                <div class="about-main">
-            <div class="about-first-paragraph wow">
-            <!--about description-->
-               <span class="about-first-line">
-                    I'm a 
-                    <span class="color">Product Manager</span>
-                     based in Delhi, India </span>
-                     <br>
-               <span class="about-second-line"> With over 7 years of experience in digital strategy, product management, and technology consulting, I have honed my skills in building scalable and reliable microservices, web, and mobile applications from concept to implementation. My career spans both startups and Big Tech, where I've demonstrated expertise in leveraging digital solutions to drive business growth and enhance efficiency.</span>
-               <div class="cv">
-                <a href="#"><button>Download <span class="colors">Resume</span></button></a>
-            </div>
-            </div>
-            <!--about picture-->
-            <div class="about-img">
-                <img src="images/about.jpg" alt="Your Image">
-            </div>
-            </div>
-    
-            </div>
-            <!--services start-->
-            
-            <!--services header-->
-                    <div class="services-heading wow">
-                        <span class="color">Badge Of</span> Honor
-                    </div>
-            <!--services header end-->
-            <!--services content-->
-                    <div class="services-content">
-                           <div class="service-one service wow">
-                               <div class="service-img">
-                               <img src="images/coding.png" alt="service-one">
-                               </div>
-                               <div class="service-description">
-                                <h2>Web Designing</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                               </div>
-                           </div>
-                           <div class="service-two service wow">
-                               <div class="service-img">
-                               <img src="images/instagram.png" alt="service-two">
-                               </div>
-                               <div class="service-description">
-                                <h2>Social Media</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                               </div>
-                           </div>
-                           <div class="service-three service wow">
-                            <div class="service-img">
-                               <img src="images/bulb.png" alt="service-three">
-                            </div>
-                            <div class="service-description">
-                                <h2>Creative Design</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                            </div>
-                        </div>
-                    </div>
-            <!--services content end-->
-            <!--services end-->
-            <div id="skills">
-                <div class="skills-header">
-                     Tools used <span class="color"> Previouly</span>
-                </div>
-                <div class="skills-content " style="text-align: center;">
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        HTML/CSS
-                    </div>
-                        </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                      Javascript
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="js-progress wow">90%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Adobe Ps
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="adobe-progress wow">83%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        PHP
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="php-progress wow">87%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        JQuery
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="jquery-progress wow">94%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        SEO
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="seo-progress wow">84%</div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!--about end-->
-        <!--portfolio-->
-        <div id="portfolio">
-             <div id="portfolio-content">
-                 <div class="portfolio portfolio-first">
-                     <div class="portfolio-image">
-                        <img src="images/portfolio-first.jpg" alt="portfolio-first">
-                     </div>
-                     <div class="portfolio-text">
-                         <h2>App Idea</h2>
-                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate 
-                             expedita eius dignissimos. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                         <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                     </div>
-                 </div>
-                 <div class="portfolio portfolio-second">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-second.jpg" alt="portfolio-second">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Web Designing</h2>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id cumque placeat minima ad laudantium suscipit
-                             voluptatem ducimus. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-             
-                <div class="portfolio portfolio-third">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-third.jpg" alt="portfolio-third">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>UI Designing</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate expedita eius dignissimos
-                            .. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                <div class="portfolio portfolio-fourth">
-                    <div class=" portfolio-image">
-                        <img src="images/portfolio-fourth.jpg" alt="portfolio-fourth">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Wow Graphics</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate
-                             expedita eius dignissimos. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                 </div>
-                    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Willy Wonkas
-                </div>
-               </div>
-       <!--copyright-section-->
-             </div>
-        <!--portfolio end-->
-                <!--contact-->
-     <div id="contact">
-        <div class="contact-content">
-            <!--Contact form-->
-<!--              <div class="contact-form">
-                 <div class="form-header">
-                     Message Me
-                 </div>
-                 <form id="myForm" action="#">
-                    <div class="input-line">
-                        <input  id="name" type="text" placeholder="Name" class="input-name">
-                        <input id="email" type="email" placeholder="Email"  class="input-name">
-                    </div>
-                    <input type="text" id="subject" placeholder="subject" class="input-subject">
-                    <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
-                    <button type="button" id ="submit" value="send">Submit</button>
-                 </form>
-               
-             </div>
-            <!-Contact form-->
-            <!--Contact information-->
-             <div class="contact-info">
-                <div class="contact-info-content">
-                <div class="contect-info-content-line">
-                    <img src="./images/icon-name.png" class="icon" alt="name-icon">
-                    <div class="contact-info-icon-text">
-                        <h6>Name</h6>
-                        <p>Aakash Bhatnagar</p>
-                  </div>
-                </div>
-                <div class="contect-info-content-line">
-                  <img src="./images/icon-location.png" class="icon" alt="location-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Location</h6>
-                      <p>New Delhi, India</p>
-                </div>
-              </div>
-              <div class="contect-info-content-line">
-                  <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Call</h6>
-                      <p>+91-9650355568</p>
-                </div>
-              </div>
-              
-              <div class="contect-info-content-line">
-                  <img src="./images/icon-email.png" class="icon" alt="email-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Linkedin</h6>
-                      <p>https://www.linkedin.com/in/aakash-bhatnagar/</p>
-                </div>
-              </div>
-                </div>
-            <!--Contact information end-->
-           </div>
-        </div>
-     </div>
-        <!--contact end-->
+  <!-- Header -->
+  <header>
+    <div class="logo"><strong>AAKASH BHATNAGAR</strong></div>
+    <div class="nav-links">
+      <a href="index.html">ABOUT ME</a>
+      <a href="resume.pdf" target="_blank">RESUME</a>
+      <a href="#projects">PROJECTS</a>
     </div>
-    <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="js/index.js"></script>
-    <!--particles script-->
-    <script>
-  particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-    </script>
+  </header>
 
+  <!-- Content -->
+  <div class="container">
+    <div class="left">
+      <img src="avatar.jpg" alt="Aakash Bhatnagar" class="avatar" />
+      <div class="name">Aakash Bhatnagar</div>
+      <div class="sub-name">
+        <div>+91-9650355568</div>
+        <div>aakashbh2@gmail.com</div>
+      </div>
+      <div class="bio" id="about">
+        Cultivated a proactive approach as a Product Manager, emphasizing the development of innovative AI-driven and SaaS solutions to significantly boost product adoption and foster remarkable business growth across various sectors.
+      </div>
+      <div class="tools-grid">
+        <a href="https://www.linkedin.com/in/aakash-bhatnagar/" target="_blank"><div class="tool"><img src="icons/linkedin.png" alt="Linkedin" /><span>LinkedIn</span></div></a>
+        <a href="resume.pdf" target="_blank"><div class="tool"><img src="icons/resume.png" alt="Resume" /><span>Download Resume</span></div></a>
+      </div>
+      <section class="education-section" style="margin-top: 50px;">
+        <h2 class="tools-heading">EDUCATION</h2>
+        <div class="education-list">
+          <div class="education-item">
+            <span class="year">2024:</span>
+            <span>MBA </span>
+            <div>Indian Institute of Management - Lucknow</div>
+          </div>
+          <div class="education-item" style="margin-top: 20px;">
+            <span class="year">2017:</span>
+            <span>B.Tech - Computer Science</span>
+            <div>Guru Gobind Singh Indraprastha University - Delhi</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <div class="right">
+
+      <div class="skills-section">
+        <div class="tools-heading">SKILLS</div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="label">PRODUCT ROADMAP <span>100%</span></div>
+            <div class="bar"><div class="fill" style="width: 100%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="label">PRODUCT STRATEGY <span>90%</span></div>
+            <div class="bar"><div class="fill" style="width: 90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="label">PRODUCT ANALYTICS <span>80%</span></div>
+            <div class="bar"><div class="fill" style="width: 80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="label">UX DESIGN AND WIREFRAMING <span>90%</span></div>
+            <div class="bar"><div class="fill" style="width: 90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="label">JIRA/NOTION <span>90%</span></div>
+            <div class="bar"><div class="fill" style="width: 90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="label">GTM STRATEGY <span>80%</span></div>
+            <div class="bar"><div class="fill" style="width: 80%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-heading">TOOLS</div>
+      <div class="tools-grid">
+        <div class="tool"><img src="icons/figma.png" alt="Figma" /><span>FIGMA</span></div>
+        <div class="tool"><img src="icons/jira.png" alt="Jira" /><span>JIRA</span></div>
+        <div class="tool"><img src="icons/notion.png" alt="Notion" /><span>NOTION</span></div>
+        <div class="tool"><img src="icons/miro.png" alt="Miro" /><span>MIRO</span></div>
+        <div class="tool"><img src="icons/whimsical.png" alt="Whimsical" /><span>WHIMSICAL</span></div>
+        <div class="tool"><img src="icons/canva.png" alt="Canva" /><span>CANVA</span></div>
+        <div class="tool"><img src="icons/tableau.png" alt="Tableau" /><span>TABLEAU</span></div>
+        <div class="tool"><img src="icons/confluence.png" alt="Confluence" /><span>CONFLUENCE</span></div>
+        <div class="tool"><img src="icons/amplitude.png" alt="Amplitude" /><span>AMPLITUDE</span></div>
+        <div class="tool"><img src="icons/trello.png" alt="Trello" /><span>TRELLO</span></div>
+        <div class="tool"><img src="icons/vwo.png" alt="VWO" /><span>VWO</span></div>
+        <div class="tool"><img src="icons/postman.png" alt="Postman" /><span>Postman</span></div>
+      </div>
+
+      <!-- My Strengths Section -->
+      <section class="strengths-section">
+        <div class="tools-heading">STRENGTHS</div>
+        <div class="strengths-grid">
+          <div class="strength-card">
+            <img src="icons/ideation.png" alt="Ideation Icon" class="icon" />
+            <h3>Ideation</h3>
+            <p>Speaking to users and understanding their pain-points, analyzing market needs, and drafting solutions to ensure that the product is always one step ahead of its competition.</p>
+          </div>
+
+          <div class="strength-card">
+            <img src="icons/wireframing.png" alt="Wireframing Icon" class="icon" />
+            <h3>Wireframing</h3>
+            <p>Designing Low-Fidelity and High-Fidelity wireframes to assist designers and to visually represent product ideas and user flows to developers as well as other stakeholders.</p>
+          </div>
+
+          <div class="strength-card highlighted">
+            <img src="icons/roadmap.png" alt="Roadmap Icon" class="icon" />
+            <h3>Product Roadmapping</h3>
+            <p>Defining a clear Product Roadmap with demarcation of different release phases and constantly improving the roadmap on the fly based on feedback from users and market sentiment.</p>
+          </div>
+
+          <div class="strength-card">
+            <img src="icons/stakeholder.png" alt="Stakeholder Icon" class="icon" />
+            <h3>Stakeholder Management</h3>
+            <p>Managing the expectations of internal stakeholders (senior management) as well as external stakeholders (investors, agencies) to ensure that everyone works together for the success of the product.</p>
+          </div>
+
+          <div class="strength-card">
+            <img src="icons/anaylst.png" alt="Analytics Icon" class="icon" />
+            <h3>Product Analytics</h3>
+            <p>Constantly analyzing the North Star Metric, primary metrics, and secondary metrics to further optimize all the stages of the pirate funnel – Acquisition, Activation, Retention, Referral, and Revenue.</p>
+          </div>
+
+          <div class="strength-card">
+            <img src="icons/pmf.png" alt="Market Fit Icon" class="icon" />
+            <h3>Product Market Fit</h3>
+            <p>Conducting extensive market research, both quantitative (surveys) and qualitative (user interviews) and constantly iterating to build a product that customers actually want to use and are willing to pay for.</p>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+  </div>
 </body>
 </html>
